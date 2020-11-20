@@ -15,5 +15,7 @@ public class Main {
 		ViewConverter viewConverter = new ViewConverter();
 		viewConverter.show();
 		
+		Integer.toStr
+		
 	}
 }
