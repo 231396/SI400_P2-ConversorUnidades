@@ -1,16 +1,24 @@
 package converters;
 
-public class CentimetreConverter extends AbstractConverter{
+public class CentimetreConverter extends AbstractConverter {
 
 	@Override
-	public AbstractConverter toBasicUnit(AbstractConverter unit) {
-		return unit;
+	protected MeasureType setMeasureType() {
+		return MeasureType.DISTANCE;
 	}
 
 	@Override
-	public AbstractConverter fromBasicUnit(AbstractConverter unit) {
-		return unit;
+	public double toBasicUnit(double unit) {
+		return unit / 100;
 	}
 
+	@Override
+	public double fromBasicUnit(double unit) {
+		return unit * 100;
+	}
+
+	public String toString() {
+		return "Distancia - Centimetro (cm)";
+	}
 
 }

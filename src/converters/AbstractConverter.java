@@ -1,15 +1,17 @@
 package converters;
 
 public abstract class AbstractConverter {
-	
-	private MeasureType measureType;
-	
-	public abstract AbstractConverter toBasicUnit(AbstractConverter unit);
-	
-	public abstract AbstractConverter fromBasicUnit(AbstractConverter unit);
-	
+
+	private MeasureType measureType = setMeasureType();
+
+	public abstract double toBasicUnit(double unit);
+
+	public abstract double fromBasicUnit(double unit);
+
 	public MeasureType getMeasureType() {
 		return this.measureType;
 	}
+
+	protected abstract MeasureType setMeasureType();
 
 }

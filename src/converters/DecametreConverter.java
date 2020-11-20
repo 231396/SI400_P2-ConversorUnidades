@@ -1,14 +1,12 @@
 package converters;
 
+public class DecametreConverter extends AbstractConverter {
 
-
-public class MetreConverter extends AbstractConverter{
-	
 	@Override
 	protected MeasureType setMeasureType() {
 		return MeasureType.DISTANCE;
 	}
-	
+
 	@Override
 	public double toBasicUnit(double unit) {
 		return unit;
@@ -18,9 +16,9 @@ public class MetreConverter extends AbstractConverter{
 	public double fromBasicUnit(double unit) {
 		return unit;
 	}
-	
+
 	public String toString() {
-		return "Distancia - Metro (m)";
+		return "Distancia - UnidadeDeMedia (abreviacao)";
 	}
 
 }

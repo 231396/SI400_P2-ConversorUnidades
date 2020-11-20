@@ -1,5 +1,7 @@
 package base;
 
+import converters.MetreConverter;
+
 public class Main 
 {
 	/**
@@ -7,7 +9,10 @@ public class Main
 	 * @param args arguments passed from console
 	 */
 	public static void main(String[] args) 
-	{		
-
+	{	
+		MetreConverter m = new MetreConverter();
+		
+		System.out.println(m.getMeasureType());
+		
 	}		
 }
