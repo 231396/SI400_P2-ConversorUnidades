@@ -1,6 +1,6 @@
 package base;
 
-
+import views.ViewConverter;
 
 public class Main {
 	/**
@@ -9,7 +9,11 @@ public class Main {
 	 * @param args arguments passed from console
 	 */
 	public static void main(String[] args) {				
-		String path = "C:\\Projetos\\Java\\Eclipse\\SI400_P2-ConversorUnidades\\src\\converters";
+		String path = "C:\\Users\\Vitor\\Desktop\\converters";
 		System.out.println(ClassFinder.LoadClasses(path).toString());
+		
+		ViewConverter viewConverter = new ViewConverter();
+		viewConverter.show();
+		
 	}
 }
