@@ -18,7 +18,7 @@ public class KilometreConverter extends AbstractConverter {
 	}
 
 	public String toString() {
-		return "Distancia - Kilometro (km)";
+		return "Distance - Kilometre (km)";
 	}
 
 }

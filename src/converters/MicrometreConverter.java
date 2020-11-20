@@ -9,16 +9,16 @@ public class MicrometreConverter extends AbstractConverter {
 
 	@Override
 	public double toBasicUnit(double unit) {
-		return unit;
+		return unit/(1000*1000);
 	}
 
 	@Override
 	public double fromBasicUnit(double unit) {
-		return unit;
+		return unit*1000*1000;
 	}
 
 	public String toString() {
-		return "Distancia - UnidadeDeMedia (abreviacao)";
+		return "Distance - Micrometre (µm)";
 	}
 
 }

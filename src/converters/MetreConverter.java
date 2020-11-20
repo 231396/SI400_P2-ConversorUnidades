@@ -20,7 +20,7 @@ public class MetreConverter extends AbstractConverter{
 	}
 	
 	public String toString() {
-		return "Distancia - Metro (m)";
+		return "Distance - Metre (m)";
 	}
 
 }

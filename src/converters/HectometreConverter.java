@@ -9,16 +9,16 @@ public class HectometreConverter extends AbstractConverter {
 
 	@Override
 	public double toBasicUnit(double unit) {
-		return unit;
+		return unit*100;
 	}
 
 	@Override
 	public double fromBasicUnit(double unit) {
-		return unit;
+		return unit/100;
 	}
 
 	public String toString() {
-		return "Distancia - UnidadeDeMedia (abreviacao)";
+		return "Distance - Hectometre (hm)";
 	}
 
 }

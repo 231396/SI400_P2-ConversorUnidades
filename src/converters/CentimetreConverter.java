@@ -18,7 +18,7 @@ public class CentimetreConverter extends AbstractConverter {
 	}
 
 	public String toString() {
-		return "Distancia - Centimetro (cm)";
+		return "Distance - Centimetre (cm)";
 	}
 
 }

@@ -9,16 +9,16 @@ public class DecametreConverter extends AbstractConverter {
 
 	@Override
 	public double toBasicUnit(double unit) {
-		return unit;
+		return unit*10;
 	}
 
 	@Override
 	public double fromBasicUnit(double unit) {
-		return unit;
+		return unit/10;
 	}
 
 	public String toString() {
-		return "Distancia - UnidadeDeMedia (abreviacao)";
+		return "Distance - Decametre (dam)";
 	}
 
 }

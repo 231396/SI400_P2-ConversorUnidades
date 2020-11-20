@@ -9,16 +9,16 @@ public class InchConverter extends AbstractConverter {
 
 	@Override
 	public double toBasicUnit(double unit) {
-		return unit;
+		return unit*0.0254;
 	}
 
 	@Override
 	public double fromBasicUnit(double unit) {
-		return unit;
+		return unit*39.3701;
 	}
 
 	public String toString() {
-		return "Distancia - UnidadeDeMedia (abreviacao)";
+		return "Distance - Inch (in)";
 	}
 
 }
