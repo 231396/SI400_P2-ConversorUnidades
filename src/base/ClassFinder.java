@@ -11,23 +11,25 @@ import converters.AbstractConverter;
 
 public final class ClassFinder {
 
-	public static String[] prohibitedTexts = new String[] 
+	private static String[] prohibitedTexts = new String[] 
 	{
 		"AbstractConverter", "MeasureType",		
 	};
 	
 	
-	public static ArrayList<AbstractConverter> LoadClasses(String path) {
+	public static ArrayList<AbstractConverter> loadClasses(String path) {
 		ArrayList<AbstractConverter> result = new ArrayList<>();
 		try {
 			File folder = new File(path);			
-			String pack = FileName(folder);
+			String pack = getFileName(folder);
 
 			File[] listOfFiles = folder.listFiles();
 			
-			for (File f : listOfFiles) 
-				if (f != null)
-					result.add(LoadClass(f, pack));		
+			for (File f : listOfFiles) {
+				AbstractConverter ac = loadClass(f, pack);
+				if (ac != null)
+					result.add(ac);		
+			}
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -35,10 +37,10 @@ public final class ClassFinder {
 		return result;
 	}
 	
-	public static AbstractConverter LoadClass(File f, String packName) {
+	public static AbstractConverter loadClass(File f, String packName) {
 		AbstractConverter result = null;
 		try {
-			String fName = FileName(f).replace(".java", "");
+			String fName = getFileName(f).replace(".java", "");
 			
 			if (Arrays.stream(prohibitedTexts).anyMatch(fName::equals))
 				return null;
@@ -47,8 +49,8 @@ public final class ClassFinder {
 			
 			URLClassLoader urlClassLoader = new URLClassLoader(urls);
 			
-			//for (URL url : urls)
-				//System.out.println(url.toString());
+			for (URL url : urls)
+				System.out.println(url.toString());
 			
 			String clsName = packName + '.' + fName;
 			result = (AbstractConverter)urlClassLoader.loadClass(clsName).getDeclaredConstructor().newInstance();
@@ -60,7 +62,7 @@ public final class ClassFinder {
 		return result;
 	}
 	
-	public static String FileName(File f) 
+	private static String getFileName(File f) 
 	{
 		return Paths.get(f.toString()).getFileName().toString();		
 	}

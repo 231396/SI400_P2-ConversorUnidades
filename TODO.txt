@@ -1,0 +1,23 @@
+- Criar Classes Dinamicamente	[]
+
+- Classes
+	DISTANCE	[]
+ 	AREA	[]
+ 	VOLUME	[]
+ 	MASS	[]
+ 	TIME	[]
+ 	SPEED	[]
+ 	ACCELERATION	[]
+ 	FORCE	[]
+	PRESSURE	[]
+	ENERGY	[]
+ 	POWER	[]
+ 	VISCOSITY	[]
+
+
+- Double to Notação cientifica	[]
+- Documentar		[]
+- Montar Interface Gráfica	[]
+- Classe UML	[]
+
+- Incorporar Interface Grafica ao Código	[]
