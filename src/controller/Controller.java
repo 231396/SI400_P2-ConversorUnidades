@@ -43,6 +43,8 @@ public class Controller {
 	
 	public static String convertMeasure(AbstractConverter convertFrom, AbstractConverter convertTo, String stringConvertFrom) {
 		try {
+			
+			stringConvertFrom = stringConvertFrom.replace(',', '.');
 
 			double valueConvertFrom = Double.parseDouble(stringConvertFrom);
 

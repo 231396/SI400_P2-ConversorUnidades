@@ -62,7 +62,7 @@ public class ViewConverter extends JFrame {
 	}
 
 	private boolean isValidNumber(char c) {
-		if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_SEMICOLON) || (c == KeyEvent.VK_PERIOD) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+		if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_COMMA) || (c == KeyEvent.VK_PERIOD) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
 			return false;
 		}
 		return true;
