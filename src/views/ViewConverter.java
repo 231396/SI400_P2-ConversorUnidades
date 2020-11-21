@@ -34,8 +34,8 @@ public class ViewConverter extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtConvertFrom;
 	private JTextField txtConvertTo;
-	private JComboBox comboConvertFrom;
-	private JComboBox comboConvertTo;
+	private JComboBox<AbstractConverter> comboConvertFrom;
+	private JComboBox<AbstractConverter> comboConvertTo;
 
 	public void setComboConvertFrom(ArrayList<AbstractConverter> listConvertFrom) {
 

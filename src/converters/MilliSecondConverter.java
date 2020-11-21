@@ -17,8 +17,14 @@ public class MilliSecondConverter extends AbstractConverter{
 		return unit*1000;
 	}
 
-	public String toString() {
-		return "Time - Millisecond (ms)";
+	@Override
+	public String toStringBr() {
+		return "Tempo - milisegundos (ms)";
+	}
+	
+	@Override
+	public String toStringNa() {
+		return "Time - millisecond (ms)";
 	}
 
 
