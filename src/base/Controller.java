@@ -18,7 +18,7 @@ public class Controller {
 	/**
 	 * Indicates the path where the program will search for the converters
 	 */
-	public static String PathConverters;
+	public static String pathConverters;
 
 	/**
 	 * Load and return a list of all AbstractConverter that is in a fixed path
@@ -26,7 +26,7 @@ public class Controller {
 	 * @return a list of all AbstractConverter found
 	 */
 	public static ArrayList<AbstractConverter> getAllConverters() {
-		String path = PathConverters;
+		String path = pathConverters;
 		ArrayList<AbstractConverter> listAllConverters = ClassFinder.loadClasses(path);
 		Collections.sort(listAllConverters,
 				(x, y) -> x.getMeasureType().getTypeString().compareTo(y.getMeasureType().getTypeString()));
@@ -92,7 +92,7 @@ public class Controller {
 			return valueInScientificNotation;
 
 		} catch (NumberFormatException e) {
-			System.out.println("O numero não tem um formato válido");
+			System.out.println("Number has a invalid value, skiping.");
 		}
 		return "";
 	}

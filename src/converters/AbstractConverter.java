@@ -41,7 +41,7 @@ public abstract class AbstractConverter {
 	
 	
 	public String toString() {
-		if (Controller.programLanguage == Languages.BR)
+		if (Controller.programLanguage.getLanguage().equals(Languages.PORTUGUESE.getLanguage()))
 			return toStringBr();
 		else
 			return toStringNa();
