@@ -9,12 +9,12 @@ public class SecondConverter extends AbstractConverter{
 
 	@Override
 	public double toBasicUnit(double unit) {
-		return unit/1000;
+		return unit;
 	}
 
 	@Override
 	public double fromBasicUnit(double unit) {
-		return unit*1000;
+		return unit;
 	}
 
 	public String toString() {
