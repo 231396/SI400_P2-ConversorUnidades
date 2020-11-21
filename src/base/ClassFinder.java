@@ -3,25 +3,30 @@ package base;
 import java.io.File;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import converters.AbstractConverter;
 
 public final class ClassFinder {
-
-	private static String[] prohibitedTexts = new String[] 
-	{
+	
+	/**
+	 * Array in which each value of it represents a class that is not part of the family of converters
+	 */
+	private static String[] prohibitedTexts = new String[] {
 		"AbstractConverter", "MeasureType",		
-	};
-	
-	
+	};	
+
+	/**
+	 * The method load classes that inherit from AbstractConverter in a given path
+	 * @param path absolute path where the classes are
+	 * @return list of AbstractConverter acquired in the given path
+	 */
 	public static ArrayList<AbstractConverter> loadClasses(String path) {
 		ArrayList<AbstractConverter> result = new ArrayList<>();
 		try {
 			File folder = new File(path);			
-			String pack = getFileName(folder);
+			String pack = Util.getFileName(folder);
 
 			File[] listOfFiles = folder.listFiles();
 			
@@ -37,10 +42,15 @@ public final class ClassFinder {
 		return result;
 	}
 	
+	/**
+	 * Load a single class that inherit from AbstractConverter in a given path
+	 * @param path absolute path where the class is
+	 * @return A instance of AbstractConverter of the load class
+	 */
 	public static AbstractConverter loadClass(File f, String packName) {
 		AbstractConverter result = null;
 		try {
-			String fName = getFileName(f).replace(".java", "");
+			String fName = Util.getFileName(f).replace(".java", "");
 			
 			if (Arrays.stream(prohibitedTexts).anyMatch(fName::equals))
 				return null;
@@ -60,11 +70,6 @@ public final class ClassFinder {
 			ex.printStackTrace();
 		}
 		return result;
-	}
-	
-	private static String getFileName(File f) 
-	{
-		return Paths.get(f.toString()).getFileName().toString();		
 	}
 	
 }
