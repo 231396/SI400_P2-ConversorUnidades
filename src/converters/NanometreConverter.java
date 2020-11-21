@@ -16,11 +16,13 @@ public class NanometreConverter extends AbstractConverter {
 	public double fromBasicUnit(double unit) {
 		return unit*1000*1000*1000;
 	}
-
+	
+	@Override
 	public String toStringBr() {
-		return "Distance - Nanometro (nm)";
+		return "Distancia - Nanometro (nm)";
 	}
 	
+	@Override
 	public String toStringNa() {
 		return "Distance - Nanometre (nm)";
 	}

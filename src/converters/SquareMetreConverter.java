@@ -17,11 +17,15 @@ public class SquareMetreConverter extends AbstractConverter{
 	public double fromBasicUnit(double unit) {
 		return unit;
 	}
-
-	public String toString() {
-		return "Area - Square Decimetre (dm\\\\u33a1)";
+	
+	@Override
+	public String toStringBr() {
+		return "Area - metro ao quadrado (m\\\\u33a1)";
 	}
-
-
+	
+	@Override
+	public String toStringNa() {
+		return "Area - squared metre (m\\\\u33a1)";
+	}
 	
 }

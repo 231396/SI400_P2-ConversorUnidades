@@ -16,8 +16,14 @@ public class SecondConverter extends AbstractConverter{
 	public double fromBasicUnit(double unit) {
 		return unit*1000;
 	}
-
-	public String toString() {
+	
+	@Override
+	public String toStringBr() {
+		return "Tempo - segundos (s)";
+	}
+	
+	@Override
+	public String toStringNa() {
 		return "Time - Second (s)";
 	}
 

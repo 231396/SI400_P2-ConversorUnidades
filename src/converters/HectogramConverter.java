@@ -16,9 +16,15 @@ public class HectogramConverter extends AbstractConverter {
 	public double fromBasicUnit(double unit) {
 		return unit*10;
 	}
-
-	public String toString() {
-		return "MASS - Hectogram (hg)";
+	
+	@Override
+	public String toStringBr() {
+		return "Massa - Hectograma (hg)";
+	}
+	
+	@Override
+	public String toStringNa() {
+		return "Mass - Hectogram (hg)";
 	}
 
 

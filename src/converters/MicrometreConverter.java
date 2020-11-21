@@ -19,7 +19,7 @@ public class MicrometreConverter extends AbstractConverter {
 	
 	@Override
 	public String toStringBr() {
-		return "Distance - Micrometro (µm)";
+		return "Distancia - Micrometro (µm)";
 	}
 	
 	@Override

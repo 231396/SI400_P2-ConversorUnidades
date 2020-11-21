@@ -19,7 +19,7 @@ public class InchConverter extends AbstractConverter {
 	
 	@Override
 	public String toStringBr() {
-		return "Distance - Polegada (in)";
+		return "Distancia - Polegada (in)";
 	}
 	
 	@Override

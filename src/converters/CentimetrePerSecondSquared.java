@@ -16,9 +16,15 @@ public class CentimetrePerSecondSquared extends AbstractConverter {
 	public double fromBasicUnit(double unit) {
 		return unit * 100;
 	}
-
-	public String toString() {
-		return "Acceleration -  (cm/s\u00b2)";
+	
+	@Override
+	public String toStringBr() {
+		return "Aceleracao - centimetros p/ segundo ao quadrado (cm/s\u00b2)";
+	}
+	
+	@Override
+	public String toStringNa() {
+		return "Acceleration - centimetre p/ second squared (cm/s\u00b2)";
 	}
 
 

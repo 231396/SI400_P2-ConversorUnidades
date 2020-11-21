@@ -16,8 +16,14 @@ public class HourConverter extends AbstractConverter {
 	public double fromBasicUnit(double unit) {
 		return unit/(60*60);
 	}
-
-	public String toString() {
+	
+	@Override
+	public String toStringBr() {
+		return "Tempo - Hora (h)";
+	}
+	
+	@Override
+	public String toStringNa() {
 		return "Time - Hour (h)";
 	}
 
