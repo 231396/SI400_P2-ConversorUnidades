@@ -68,7 +68,7 @@ public class ViewConverter extends JFrame {
 	 * Create the frame.
 	 */
 	public ViewConverter() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(ViewConverter.class.getResource("/views/Unicamp.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ViewConverter.class.getResource("/resources/Unicamp.png")));
 		setTitle("Unit Converter");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 506, 237);
