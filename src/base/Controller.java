@@ -6,22 +6,51 @@ import java.util.Collections;
 import converters.AbstractConverter;
 import converters.MeasureType;
 
+/**
+ * Class that has the main methods and contains most of the logic
+ */
 public class Controller {
-	
+
+	/**
+	 * Indicates the user Language
+	 */
 	public static Languages programLanguage;
-	
+	/**
+	 * Indicates the path where the program will search for the converters
+	 */
+	public static String PathConverters;
+
+	/**
+	 * Load and return a list of all AbstractConverter that is in a fixed path
+	 * 
+	 * @return a list of all AbstractConverter found
+	 */
 	public static ArrayList<AbstractConverter> getAllConverters() {
-		String path = "C:\\Users\\Vitor\\Desktop\\converters";
-		ArrayList<AbstractConverter> listAllConverters = ClassFinder.loadClasses(path);  
-		Collections.sort(listAllConverters, (x,y ) -> x.getMeasureType().getTypeString().compareTo(y.getMeasureType().getTypeString()));
+		String path = PathConverters;
+		ArrayList<AbstractConverter> listAllConverters = ClassFinder.loadClasses(path);
+		Collections.sort(listAllConverters,
+				(x, y) -> x.getMeasureType().getTypeString().compareTo(y.getMeasureType().getTypeString()));
 		return listAllConverters;
 	}
 
+	/**
+	 * Load and return a list of all AbstractConverter that is in a given path
+	 * 
+	 * @param path the path to search all AbstractConverter
+	 * @return list of all AbstractConverter found
+	 */
 	public static ArrayList<AbstractConverter> getAllConvertersByPath(String path) {
 		path = "C:\\Users\\Vitor\\Desktop\\converters";
 		return ClassFinder.loadClasses(path);
 	}
 
+	/**
+	 * Load a list of all AbstractConverter that is in a fixed path 
+	 * Then filter the list of AbstractConverter based in the MeasureType of the elements
+	 * 
+	 * @param measureType that will remain in the list
+	 * @return list of all AbstractConverter that has the allowed MeasureType 
+	 */
 	public static ArrayList<AbstractConverter> getListConvertByMeasureType(MeasureType measureType) {
 
 		String stringMeasureType = measureType.getTypeString();
@@ -36,24 +65,32 @@ public class Controller {
 			}
 
 		}
-		
+
 		return listConvert;
 
 	}
-	
-	public static String convertMeasure(AbstractConverter convertFrom, AbstractConverter convertTo, String stringConvertFrom) {
+
+	/**
+	 * Convert a value from a certain Measure to another Measure
+	 * 
+	 * @param convertFrom the measure of the given value
+	 * @param convertTo   the measure that the value will be converted to
+	 * @return string in Scientific Notation of the value converted 
+	 */
+	public static String convertMeasure(AbstractConverter convertFrom, AbstractConverter convertTo,
+			String stringConvertFrom) {
 		try {
-			
+
 			stringConvertFrom = stringConvertFrom.replace(',', '.');
 
 			double valueConvertFrom = Double.parseDouble(stringConvertFrom);
 
 			double valueConverted = convertTo.fromBasicUnit(convertFrom.toBasicUnit(valueConvertFrom));
-			
+
 			String valueInScientificNotation = Util.doubleToScientificNotation(valueConverted);
-			
+
 			return valueInScientificNotation;
-			
+
 		} catch (NumberFormatException e) {
 			System.out.println("O numero não tem um formato válido");
 		}
