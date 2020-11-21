@@ -8,6 +8,9 @@ import java.util.Arrays;
 
 import converters.AbstractConverter;
 
+/**
+ * Class that find and instantiate AbstractConverter
+ */
 public final class ClassFinder {
 	
 	/**

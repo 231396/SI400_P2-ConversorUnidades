@@ -3,7 +3,11 @@ package base;
 import java.io.File;
 import java.nio.file.Paths;
 
-public class Util {
+/**
+ * Class where all methods are static and don't have true propose alone.
+ * Helping other classes.
+ */
+public final class Util {
 	
 	/**
 	 * From the path of given file get the last string in the URL. 
