@@ -16,8 +16,14 @@ public class KilometreConverter extends AbstractConverter {
 	public double fromBasicUnit(double unit) {
 		return unit * 1000;
 	}
-
-	public String toString() {
+	
+	@Override
+	public String toStringBr() {
+		return "Distance - Quilometro (km)";
+	}
+	
+	@Override
+	public String toStringNa() {
 		return "Distance - Kilometre (km)";
 	}
 

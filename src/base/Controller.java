@@ -1,15 +1,15 @@
-package controller;
+package base;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-import base.ClassFinder;
-import base.Util;
 import converters.AbstractConverter;
 import converters.MeasureType;
 
 public class Controller {
-
+	
+	public static Languages programLanguage;
+	
 	public static ArrayList<AbstractConverter> getAllConverters() {
 		String path = "C:\\Users\\Vitor\\Desktop\\converters";
 		ArrayList<AbstractConverter> listAllConverters = ClassFinder.loadClasses(path);  

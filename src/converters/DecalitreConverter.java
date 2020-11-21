@@ -18,8 +18,13 @@ public class DecalitreConverter extends AbstractConverter {
 		return unit/10;
 	}
 
-	public String toString() {
+	@Override
+	public String toStringBr() {
+		return "Volume - Decalitro (dal)";
+	}
+	
+	@Override
+	public String toStringNa() {
 		return "Volume - Decalitre (dal)";
 	}
-
 }

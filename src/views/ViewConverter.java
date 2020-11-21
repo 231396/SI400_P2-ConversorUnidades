@@ -6,10 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import base.ClassFinder;
-import base.Util;
+import base.Controller;
 import comboBoxModel.ConverterComboBoxModel;
-import controller.Controller;
 import converters.AbstractConverter;
 
 import javax.swing.JTextField;
@@ -28,6 +26,11 @@ import java.awt.event.KeyEvent;
 
 public class ViewConverter extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel contentPane;
 	private JTextField txtConvertFrom;
 	private JTextField txtConvertTo;
@@ -107,7 +110,7 @@ public class ViewConverter extends JFrame {
 		contentPane.add(txtConvertTo);
 		txtConvertTo.setColumns(10);
 
-		comboConvertFrom = new JComboBox();
+		comboConvertFrom = new JComboBox<>();
 		comboConvertFrom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setComboConvertTo();
@@ -117,7 +120,7 @@ public class ViewConverter extends JFrame {
 		comboConvertFrom.setBounds(250, 60, 211, 22);
 		contentPane.add(comboConvertFrom);
 
-		comboConvertTo = new JComboBox();
+		comboConvertTo = new JComboBox<>();
 		comboConvertTo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				convertMeasure();

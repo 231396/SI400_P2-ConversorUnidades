@@ -19,7 +19,13 @@ public class MetreConverter extends AbstractConverter{
 		return unit;
 	}
 	
-	public String toString() {
+	@Override
+	public String toStringBr() {
+		return "Distance - Metro (m)";
+	}
+	
+	@Override
+	public String toStringNa() {
 		return "Distance - Metre (m)";
 	}
 

@@ -16,8 +16,14 @@ public class InchConverter extends AbstractConverter {
 	public double fromBasicUnit(double unit) {
 		return unit*39.3701;
 	}
-
-	public String toString() {
+	
+	@Override
+	public String toStringBr() {
+		return "Distance - Polegada (in)";
+	}
+	
+	@Override
+	public String toStringNa() {
 		return "Distance - Inch (in)";
 	}
 

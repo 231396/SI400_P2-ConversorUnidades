@@ -17,7 +17,13 @@ public class CentiliterConverter extends AbstractConverter {
 		return unit * 100;
 	}
 
-	public String toString() {
+	@Override
+	public String toStringBr() {
+		return "Volume - Centilitro (cl)";
+	}
+	
+	@Override
+	public String toStringNa() {
 		return "Volume - Centilitre (cl)";
 	}
 

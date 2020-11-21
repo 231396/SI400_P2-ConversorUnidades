@@ -16,8 +16,14 @@ public class HectometreConverter extends AbstractConverter {
 	public double fromBasicUnit(double unit) {
 		return unit/100;
 	}
-
-	public String toString() {
+	
+	@Override
+	public String toStringBr() {
+		return "Distance - Hectometro (hm)";
+	}
+	
+	@Override
+	public String toStringNa() {
 		return "Distance - Hectometre (hm)";
 	}
 

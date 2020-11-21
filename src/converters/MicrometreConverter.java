@@ -16,8 +16,14 @@ public class MicrometreConverter extends AbstractConverter {
 	public double fromBasicUnit(double unit) {
 		return unit*1000*1000;
 	}
-
-	public String toString() {
+	
+	@Override
+	public String toStringBr() {
+		return "Distance - Micrometro (µm)";
+	}
+	
+	@Override
+	public String toStringNa() {
 		return "Distance - Micrometre (µm)";
 	}
 

@@ -16,8 +16,14 @@ public class CentimetreConverter extends AbstractConverter {
 	public double fromBasicUnit(double unit) {
 		return unit * 100;
 	}
-
-	public String toString() {
+	
+	@Override
+	public String toStringBr() {
+		return "Distance - Centímetro (cm)";
+	}
+	
+	@Override
+	public String toStringNa() {
 		return "Distance - Centimetre (cm)";
 	}
 

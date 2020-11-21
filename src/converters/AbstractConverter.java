@@ -1,5 +1,7 @@
 package converters;
 
+import base.Controller;
+import base.Languages;
 
 /**
  * Base class from all converter classes
@@ -37,5 +39,15 @@ public abstract class AbstractConverter {
 	 * @return set propriety of measureType
 	 */
 	protected abstract MeasureType setMeasureType();
-
+	
+	
+	public String toString() {
+		if (Controller.programLanguage == Languages.BR)
+			return toStringBr();
+		else
+			return toStringNa();
+	}
+	
+	protected abstract String toStringBr();
+	protected abstract String toStringNa();
 }

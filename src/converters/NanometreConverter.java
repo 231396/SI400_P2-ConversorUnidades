@@ -17,7 +17,11 @@ public class NanometreConverter extends AbstractConverter {
 		return unit*1000*1000*1000;
 	}
 
-	public String toString() {
+	public String toStringBr() {
+		return "Distance - Nanometro (nm)";
+	}
+	
+	public String toStringNa() {
 		return "Distance - Nanometre (nm)";
 	}
 

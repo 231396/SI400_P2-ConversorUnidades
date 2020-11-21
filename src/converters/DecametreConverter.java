@@ -16,8 +16,14 @@ public class DecametreConverter extends AbstractConverter {
 	public double fromBasicUnit(double unit) {
 		return unit/10;
 	}
-
-	public String toString() {
+	
+	@Override
+	public String toStringBr() {
+		return "Distance - Decametro (dam)";
+	}
+	
+	@Override
+	public String toStringNa() {
 		return "Distance - Decametre (dam)";
 	}
 

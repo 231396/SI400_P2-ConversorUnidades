@@ -17,7 +17,13 @@ public class LitreConverter extends AbstractConverter {
 		return unit;
 	}
 	
-	public String toString() {
+	@Override
+	public String toStringBr() {
+		return "Volume - Litro (l)";
+	}
+	
+	@Override
+	public String toStringNa() {
 		return "Volume - Litre (l)";
 	}
 
