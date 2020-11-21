@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import base.ClassFinder;
+import base.Util;
 import comboBoxModel.ConverterComboBoxModel;
 import controller.Controller;
 import converters.AbstractConverter;
@@ -22,6 +23,8 @@ import javax.swing.border.EtchedBorder;
 import java.awt.SystemColor;
 import javax.swing.SwingConstants;
 import java.awt.Toolkit;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class ViewConverter extends JFrame {
 
@@ -39,10 +42,30 @@ public class ViewConverter extends JFrame {
 
 	public void setComboConvertTo() {
 		AbstractConverter converterSelected = (AbstractConverter) comboConvertFrom.getModel().getSelectedItem();
-		ArrayList<AbstractConverter> listConvertTo = Controller.getListConvertByMeasureType(converterSelected.getMeasureType());
+		ArrayList<AbstractConverter> listConvertTo = Controller
+				.getListConvertByMeasureType(converterSelected.getMeasureType());
 
 		ConverterComboBoxModel convertToComboBoxModel = new ConverterComboBoxModel(listConvertTo);
 		comboConvertTo.setModel(convertToComboBoxModel);
+	}
+
+	private void convertMeasure() {
+
+		AbstractConverter selectedConvertFrom = (AbstractConverter) comboConvertFrom.getModel().getSelectedItem();
+		AbstractConverter selectedConvertTo = (AbstractConverter) comboConvertTo.getModel().getSelectedItem();
+		
+		String stringConvertFrom = txtConvertFrom.getText().toString();
+		
+		String stringMeasureConverted = Controller.convertMeasure(selectedConvertFrom,selectedConvertTo, stringConvertFrom);
+		
+		txtConvertTo.setText(stringMeasureConverted);
+	}
+
+	private boolean isValidNumber(char c) {
+		if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_SEMICOLON) || (c == KeyEvent.VK_PERIOD) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -60,11 +83,26 @@ public class ViewConverter extends JFrame {
 		contentPane.setLayout(null);
 
 		txtConvertFrom = new JTextField();
+		txtConvertFrom.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!isValidNumber(c)) {
+					e.consume();
+					getToolkit().beep();
+				}
+			}
+			@Override
+			public void keyReleased(KeyEvent e) {
+				convertMeasure();
+			}
+		});
 		txtConvertFrom.setBounds(129, 61, 111, 20);
 		contentPane.add(txtConvertFrom);
 		txtConvertFrom.setColumns(10);
 
 		txtConvertTo = new JTextField();
+		txtConvertTo.setEditable(false);
 		txtConvertTo.setBounds(129, 117, 111, 20);
 		contentPane.add(txtConvertTo);
 		txtConvertTo.setColumns(10);
@@ -73,12 +111,18 @@ public class ViewConverter extends JFrame {
 		comboConvertFrom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setComboConvertTo();
+				convertMeasure();
 			}
 		});
 		comboConvertFrom.setBounds(250, 60, 211, 22);
 		contentPane.add(comboConvertFrom);
 
 		comboConvertTo = new JComboBox();
+		comboConvertTo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				convertMeasure();
+			}
+		});
 		comboConvertTo.setBounds(250, 116, 211, 22);
 		contentPane.add(comboConvertTo);
 
