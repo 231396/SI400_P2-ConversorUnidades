@@ -1,13 +1,19 @@
 package views;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import base.ClassFinder;
+import comboBoxModel.ConverterComboBoxModel;
+import converters.AbstractConverter;
+
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
@@ -21,28 +27,48 @@ public class ViewConverter extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtConvertFrom;
 	private JTextField txtConvertTo;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ViewConverter frame = new ViewConverter();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	private JComboBox comboConvertFrom;
+	private JComboBox comboConvertTo;
+	
+	
+	public void setAllComboBox(ArrayList<AbstractConverter> listConvertFrom, ArrayList<AbstractConverter> listConvertTo){
+		
+		ConverterComboBoxModel convertFromComboBoxModel   = new ConverterComboBoxModel(listConvertFrom);
+		ConverterComboBoxModel   convertToComboBoxModel   = new ConverterComboBoxModel(listConvertTo);
+		
+		comboConvertFrom.setModel(convertFromComboBoxModel);
+		comboConvertTo.setModel(convertToComboBoxModel);
 	}
+	
+	private void setComboConvertTo(ActionEvent arg0) {
+		System.out.println("Clicou - ");
+		
+		AbstractConverter converterSelected = (AbstractConverter) comboConvertFrom.getModel().getSelectedItem();
+		converterSelected.getMeasureType().getTypeString();
+		
+		String typeMeasureSelected = converterSelected.getMeasureType().getTypeString();
+		
+		String path = "C:\\Users\\Vitor\\Desktop\\converters";
+		
+		ArrayList<AbstractConverter> listConvertTo = ClassFinder.loadClasses(path);
+		
+		for (AbstractConverter itemConverter : listConvertTo) {
+			if(!itemConverter.getMeasureType().getTypeString().equals(typeMeasureSelected)) {
+				listConvertTo.remove(itemConverter);
+			}
+		}
+		
 
+		ConverterComboBoxModel convertToComboBoxModel   = new ConverterComboBoxModel(listConvertTo);
+		comboConvertTo.setModel(convertToComboBoxModel);
+		
+	}
+	
 	/**
 	 * Create the frame.
 	 */
 	public ViewConverter() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(ViewConverter.class.getResource("/views/Unicamp.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ViewConverter.class.getResource("/resources/Unicamp.png")));
 		setTitle("Unit Converter");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 506, 237);
@@ -62,11 +88,16 @@ public class ViewConverter extends JFrame {
 		contentPane.add(txtConvertTo);
 		txtConvertTo.setColumns(10);
 		
-		JComboBox comboConvertFrom = new JComboBox();
+		comboConvertFrom = new JComboBox();
+		comboConvertFrom.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				setComboConvertTo(arg0);
+			}
+		});
 		comboConvertFrom.setBounds(250, 60, 211, 22);
 		contentPane.add(comboConvertFrom);
 		
-		JComboBox comboConvertTo = new JComboBox();
+		comboConvertTo = new JComboBox();
 		comboConvertTo.setBounds(250, 116, 211, 22);
 		contentPane.add(comboConvertTo);
 		
