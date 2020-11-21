@@ -2,6 +2,7 @@ package base;
 
 import java.util.ArrayList;
 
+import controller.Controller;
 import converters.AbstractConverter;
 import views.ViewConverter;
 
@@ -12,17 +13,13 @@ public class Main {
 	 * @param args arguments passed from console
 	 */
 	public static void main(String[] args) {				
-		String path = "C:\\Users\\Vitor\\Desktop\\converters";
-		
-		ArrayList<AbstractConverter> listConvertFrom = ClassFinder.loadClasses(path);
-		
-		
 		
 		ViewConverter viewConverter = new ViewConverter();
 		
-		
-		
-		viewConverter.setAllComboBox(listConvertFrom, listConvertFrom);
+
+		ArrayList<AbstractConverter> listConvertFrom = Controller.getAllConverters();
+		viewConverter.setComboConvertFrom(listConvertFrom);
+		viewConverter.setComboConvertTo();
 		
 		viewConverter.setVisible(true);
 		
