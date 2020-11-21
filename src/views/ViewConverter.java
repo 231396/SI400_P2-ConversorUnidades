@@ -94,18 +94,10 @@ public class ViewConverter extends JFrame {
 				setComboConvertTo(arg0);
 			}
 		});
-		comboConvertFrom.setBounds(244, 60, 180, 22);
-		contentPane.add(comboConvertFrom);
-		
-		comboConvertTo = new JComboBox();
-		comboConvertTo.setBounds(244, 158, 180, 22);
-		contentPane.add(comboConvertTo);
-		
-		JComboBox comboConvertFrom = new JComboBox();
 		comboConvertFrom.setBounds(250, 60, 211, 22);
 		contentPane.add(comboConvertFrom);
 		
-		JComboBox comboConvertTo = new JComboBox();
+		comboConvertTo = new JComboBox();
 		comboConvertTo.setBounds(250, 116, 211, 22);
 		contentPane.add(comboConvertTo);
 		
