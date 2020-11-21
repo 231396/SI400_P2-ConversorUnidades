@@ -1,5 +1,8 @@
 package base;
 
+import java.util.ArrayList;
+
+import converters.AbstractConverter;
 import views.ViewConverter;
 
 public class Main {
@@ -10,12 +13,19 @@ public class Main {
 	 */
 	public static void main(String[] args) {				
 		String path = "C:\\Users\\Vitor\\Desktop\\converters";
-		System.out.println(ClassFinder.LoadClasses(path).toString());
+		
+		ArrayList<AbstractConverter> listConvertFrom = ClassFinder.loadClasses(path);
+		
+		
 		
 		ViewConverter viewConverter = new ViewConverter();
-		viewConverter.show();
 		
-		Integer.toStr
+		
+		
+		viewConverter.setAllComboBox(listConvertFrom, listConvertFrom);
+		
+		viewConverter.setVisible(true);
+		
 		
 	}
 }
