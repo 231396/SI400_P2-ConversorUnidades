@@ -19,7 +19,7 @@ public class MillimetreConverter extends AbstractConverter {
 	
 	@Override
 	public String toStringBr() {
-		return "Distance - Milimetro (mm)";
+		return "Distancia - Milimetro (mm)";
 	}
 	
 	@Override

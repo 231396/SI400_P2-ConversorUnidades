@@ -19,7 +19,7 @@ public class KilometreConverter extends AbstractConverter {
 	
 	@Override
 	public String toStringBr() {
-		return "Distance - Quilometro (km)";
+		return "Distancia - Quilometro (km)";
 	}
 	
 	@Override

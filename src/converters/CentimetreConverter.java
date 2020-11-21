@@ -19,7 +19,7 @@ public class CentimetreConverter extends AbstractConverter {
 	
 	@Override
 	public String toStringBr() {
-		return "Distance - Centímetro (cm)";
+		return "Distancia - Centímetro (cm)";
 	}
 	
 	@Override

@@ -16,8 +16,14 @@ public class DeciLitreConverter extends AbstractConverter {
 	public double fromBasicUnit(double unit) {
 		return unit*10;
 	}
-
-	public String toString() {
+	
+	@Override
+	public String toStringBr() {
+		return "Volume - Decilitro (dl)";
+	}
+	
+	@Override
+	public String toStringNa() {
 		return "Volume - Decilitre (dl)";
 	}
 

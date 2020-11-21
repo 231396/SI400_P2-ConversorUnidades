@@ -1,6 +1,6 @@
 package converters;
 
-public class SquareDecametre extends AbstractConverter {
+public class SquareDecametreConverter extends AbstractConverter {
 	
 	@Override
 	protected MeasureType setMeasureType() {
@@ -16,9 +16,15 @@ public class SquareDecametre extends AbstractConverter {
 	public double fromBasicUnit(double unit) {
 		return unit/100;
 	}
-
-	public String toString() {
-		return "Distance - Square Decametre (dam\\\\u33a1)";
+	
+	@Override
+	public String toStringBr() {
+		return "Area - decamentro ao quadrado (dam\\\\\\\\u33a1)";
+	}
+	
+	@Override
+	public String toStringNa() {
+		return "Area - Square Decametre (dam\\\\u33a1)";
 	}
 
 

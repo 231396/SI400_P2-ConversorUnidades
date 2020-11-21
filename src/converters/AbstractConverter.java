@@ -12,7 +12,6 @@ public abstract class AbstractConverter {
 	 * Indicates the MeasureType, which the inherit converters belongs
 	 */
 	private MeasureType measureType = setMeasureType();
-
 	
 	/**
 	 * Convert a unit value to their basic measure
@@ -48,6 +47,15 @@ public abstract class AbstractConverter {
 			return toStringNa();
 	}
 	
+	/**
+	 * Return a string in Br version
+	 * @return toString method version Br
+	 */
 	protected abstract String toStringBr();
+	
+	/**
+	 * Return a string in Na version
+	 * @return toString method version Na
+	 */
 	protected abstract String toStringNa();
 }

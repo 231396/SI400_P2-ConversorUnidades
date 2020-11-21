@@ -19,7 +19,7 @@ public class DecametreConverter extends AbstractConverter {
 	
 	@Override
 	public String toStringBr() {
-		return "Distance - Decametro (dam)";
+		return "Distancia - Decametro (dam)";
 	}
 	
 	@Override

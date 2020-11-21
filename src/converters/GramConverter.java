@@ -16,9 +16,15 @@ public class GramConverter extends AbstractConverter{
 	public double fromBasicUnit(double unit) {
 		return unit*1000;
 	}
-
-	public String toString() {
-		return "MASS - Gram (g)";
+	
+	@Override
+	public String toStringBr() {
+		return "Distancia - Grama (g)";
+	}
+	
+	@Override
+	public String toStringNa() {
+		return "Mass - Gram (g)";
 	}
 
 

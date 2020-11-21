@@ -16,8 +16,14 @@ public class SquareDecimetreConverter extends AbstractConverter{
 	public double fromBasicUnit(double unit) {
 		return unit*100;
 	}
-
-	public String toString() {
+	
+	@Override
+	public String toStringBr() {
+		return "Area - decimentro ao quadrado (dm\\\\\\\\u33a1)";
+	}
+	
+	@Override
+	public String toStringNa() {
 		return "Area - Square Decimetre (dm\\\\u33a1)";
 	}
 
