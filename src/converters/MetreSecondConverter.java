@@ -17,8 +17,14 @@ public class MetreSecondConverter extends AbstractConverter {
 		return unit;
 	}
 	
-	public String toString() {
-		return "SPEED - (m/s)";
+	@Override
+	public String toStringBr() {
+		return "Velocidade - metros por segundo (m/s)";
+	}
+	
+	@Override
+	public String toStringNa() {
+		return "Speed - meter per second (m/s)";
 	}
 
 

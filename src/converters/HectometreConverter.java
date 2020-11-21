@@ -19,7 +19,7 @@ public class HectometreConverter extends AbstractConverter {
 	
 	@Override
 	public String toStringBr() {
-		return "Distance - Hectometro (hm)";
+		return "Distancia - Hectometro (hm)";
 	}
 	
 	@Override

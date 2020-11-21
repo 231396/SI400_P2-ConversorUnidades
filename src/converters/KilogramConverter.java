@@ -17,7 +17,13 @@ public class KilogramConverter extends AbstractConverter{
 		return unit;
 	}
 	
-	public String toString() {
+	@Override
+	public String toStringBr() {
+		return "Massa - Quilograma (kg)";
+	}
+	
+	@Override
+	public String toStringNa() {
 		return "Mass - Kilogram (kg)";
 	}
 

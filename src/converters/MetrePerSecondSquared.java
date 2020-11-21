@@ -17,8 +17,14 @@ public class MetrePerSecondSquared extends AbstractConverter {
 		return unit;
 	}
 	
-	public String toString() {
-		return "Acceleration - (m/s\u00b2)";
+	@Override
+	public String toStringBr() {
+		return "Aceleracao - metro p/ segundo ao quadrado (m/s\u00b2)";
+	}
+	
+	@Override
+	public String toStringNa() {
+		return "Acceleration - metre p/ second squared (m/s\u00b2)";
 	}
 
 

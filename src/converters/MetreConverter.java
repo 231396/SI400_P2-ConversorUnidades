@@ -21,7 +21,7 @@ public class MetreConverter extends AbstractConverter{
 	
 	@Override
 	public String toStringBr() {
-		return "Distance - Metro (m)";
+		return "Distancia - Metro (m)";
 	}
 	
 	@Override

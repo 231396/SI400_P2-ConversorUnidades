@@ -17,8 +17,14 @@ public class KilometreHour extends AbstractConverter {
 		return unit * 3.6;
 	}
 	
-	public String toString() {
-		return "SPEED - (k/h)";
+	@Override
+	public String toStringBr() {
+		return "Velocidade - Quilometro (k/h)";
+	}
+	
+	@Override
+	public String toStringNa() {
+		return "Speed - Kilometre (k/h)";
 	}
 
 
