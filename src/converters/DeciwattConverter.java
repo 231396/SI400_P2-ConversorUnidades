@@ -1,7 +1,7 @@
 package converters;
 
-public class Decawatt extends AbstractConverter {
-
+public class DeciwattConverter extends AbstractConverter {
+	
 	@Override
 	protected MeasureType setMeasureType() {
 		return MeasureType.POWER;
@@ -9,23 +9,23 @@ public class Decawatt extends AbstractConverter {
 
 	@Override
 	public double toBasicUnit(double unit) {
-		return unit*10;
+		return unit/10;
 	}
 
 	@Override
 	public double fromBasicUnit(double unit) {
-		return unit/10;
+		return unit*10;
 	}
 	
 	@Override
 	public String toStringBr() {
-		return "Potência - Decawatt (daW)";
+		return "Potência - Deciwatt (dW)";
 	}
 	
 	@Override
 	public String toStringNa() {
-		return "Power - Decawatt (daW)";
+		return "Power - Deciwatt (dW)";
 	}
 
-	
+
 }

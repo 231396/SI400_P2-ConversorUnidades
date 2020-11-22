@@ -1,6 +1,6 @@
 package converters;
 
-public class CentimetrePerSecondSquared extends AbstractConverter {
+public class CentimetrePerSecondSquaredConverter extends AbstractConverter {
 	
 	@Override
 	protected MeasureType setMeasureType() {

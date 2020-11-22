@@ -1,7 +1,7 @@
 package converters;
 
-public class DecaNewton extends AbstractConverter {
-
+public class DeciNewtonConverter extends AbstractConverter {
+	
 	@Override
 	protected MeasureType setMeasureType() {
 		return MeasureType.FORCE;
@@ -9,23 +9,22 @@ public class DecaNewton extends AbstractConverter {
 
 	@Override
 	public double toBasicUnit(double unit) {
-		return unit*10;
+		return unit/10;
 	}
 
 	@Override
 	public double fromBasicUnit(double unit) {
-		return unit/10;
+		return unit*10;
 	}
 	
 	@Override
 	public String toStringBr() {
-		return "Força - Decanewton (daN)";
+		return "Força - Newton (dN)";
 	}
 	
 	@Override
 	public String toStringNa() {
-		return "Force - Decanewton (daN)";
+		return "Force - Newton (dN)";
 	}
 
-	
 }
