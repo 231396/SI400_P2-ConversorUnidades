@@ -1,31 +1,31 @@
 package converters;
 
-public class MetrePerSecondSquared extends AbstractConverter {
-	
+public class DecaNewtonConverter extends AbstractConverter {
+
 	@Override
 	protected MeasureType setMeasureType() {
-		return MeasureType.ACCELERATION;
+		return MeasureType.FORCE;
 	}
-	
+
 	@Override
 	public double toBasicUnit(double unit) {
-		return unit;
+		return unit*10;
 	}
 
 	@Override
 	public double fromBasicUnit(double unit) {
-		return unit;
+		return unit/10;
 	}
 	
 	@Override
 	public String toStringBr() {
-		return "Aceleracao - metro p/ segundo ao quadrado (m/s\u00b2)";
+		return "Força - Decanewton (daN)";
 	}
 	
 	@Override
 	public String toStringNa() {
-		return "Acceleration - metre p/ second squared (m/s\u00b2)";
+		return "Force - Decanewton (daN)";
 	}
 
-
+	
 }

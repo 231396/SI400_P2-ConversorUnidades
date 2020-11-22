@@ -1,30 +1,30 @@
 package converters;
 
-public class Deciwatt extends AbstractConverter {
+public class KilometreHourConverter extends AbstractConverter {
 	
 	@Override
 	protected MeasureType setMeasureType() {
-		return MeasureType.POWER;
+		return MeasureType.SPEED;
 	}
-
+	
 	@Override
 	public double toBasicUnit(double unit) {
-		return unit/10;
+		return unit/(3.6);
 	}
 
 	@Override
 	public double fromBasicUnit(double unit) {
-		return unit*10;
+		return unit * 3.6;
 	}
 	
 	@Override
 	public String toStringBr() {
-		return "Potência - Deciwatt (dW)";
+		return "Velocidade - Quilometro (k/h)";
 	}
 	
 	@Override
 	public String toStringNa() {
-		return "Power - Deciwatt (dW)";
+		return "Speed - Kilometre (k/h)";
 	}
 
 

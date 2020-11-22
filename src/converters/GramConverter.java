@@ -19,7 +19,7 @@ public class GramConverter extends AbstractConverter{
 	
 	@Override
 	public String toStringBr() {
-		return "Distancia - Grama (g)";
+		return "Massa - Grama (g)";
 	}
 	
 	@Override
