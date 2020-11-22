@@ -17,6 +17,8 @@ public class Main {
 		if(args.length > 0) {
 			String pathConverters = args[0];
 			Controller.pathConverters = pathConverters;
+		}else {
+			Controller.pathConverters = "C:\\Users\\Vitor\\Desktop\\converters";
 		}
 		
 		
