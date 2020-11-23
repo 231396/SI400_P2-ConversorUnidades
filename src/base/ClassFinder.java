@@ -16,7 +16,7 @@ public final class ClassFinder {
 
 	//private static String[] prohibitedTexts = new String[] { "AbstractConverter", "MeasureType", "ClassFinder", };
 
-	private static String convertersFolder = "converters";
+	private final static String convertersFolder = "converters";
 
 	public static ArrayList<AbstractConverter> getExternalWorkloads(String jarName) {
 		//jarName = "C:\\Users\\Vitor\\Desktop\\teste.jar";
