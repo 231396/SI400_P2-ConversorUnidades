@@ -20,15 +20,17 @@ public class Controller {
 	 */
 	public static String pathConverters;
 	
+	/**
+	 * Name of compiled .jar file name
+	 */
 	public static String jarFileName;
 
 	/**
 	 * Load and return a list of all AbstractConverter that is in a fixed path
-	 * 
 	 * @return a list of all AbstractConverter found
 	 */
 	public static ArrayList<AbstractConverter> getAllConverters() {
-		ArrayList<AbstractConverter> listAllConverters = ClassFinder.getExternalWorkloads(jarFileName);
+		ArrayList<AbstractConverter> listAllConverters = ClassFinder.loadClasses(jarFileName);
 		Collections.sort(listAllConverters,
 				(x, y) -> x.getMeasureType().getTypeString().compareTo(y.getMeasureType().getTypeString()));
 		return listAllConverters;
