@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.jar.JarEntry;
 import java.util.jar.JarInputStream;
 
@@ -43,17 +44,16 @@ public final class ClassFinder {
 				
 				String jarString = jarEntry.getName();
 
-				for (String str : prohibitedTexts)
-					if (str.equals(jarString))
-						continue;
+				
+				
 				
 				if (jarString.startsWith(packageName) && jarString.endsWith(".class")) {
 					String clsName = jarString.replaceAll("/", "\\.");
 
 					clsName = clsName.replaceAll(".class", "");
-
-					//if (clsName.contains("$") == false) {
-						//ClassLoader.getSystemClassLoader();
+					
+					if (Arrays.stream(prohibitedTexts).anyMatch(clsName.replace(convertersFolder+".", "")::equals))
+						continue;
 					URL url = new URL("jar:file:" + jarName + "!/");
 
 					URLClassLoader ucl = new URLClassLoader(new URL[] { url });
@@ -67,7 +67,6 @@ public final class ClassFinder {
 						e.printStackTrace();
 					}
 					ucl.close();
-					//}
 				}
 			}
 
