@@ -1,10 +1,6 @@
 package base;
 
-import java.util.ArrayList;
 import java.util.Locale;
-
-import converters.AbstractConverter;
-import views.ViewConverter;
 
 public class Main {
 	
@@ -37,15 +33,13 @@ public class Main {
 		}
 		
 		//Create interface
-		ViewConverter viewConverter = new ViewConverter();
-
 		try {
-			ArrayList<AbstractConverter> listConvertFrom = Controller.getAllConverters();
-			viewConverter.setComboConvertFrom(listConvertFrom);
-			viewConverter.setComboConvertTo();
-			viewConverter.setVisible(true);			
+			Controller.createViewConverter();		
 		} catch(Exception e){
-			e.printStackTrace();
+			if(Controller.programLanguage.equals(Languages.PORTUGUESE))
+				System.out.println("Erro ao carregar as classes de conversao!");
+			else
+				System.out.println("Error while trying to load converters classes!");	
 		}
 	}
 }

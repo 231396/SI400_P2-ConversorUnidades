@@ -6,7 +6,7 @@ import java.util.Locale;
  * Enum is used to determine the system language
  */
 public enum Languages {
-	PORTUGUESE("pet"),
+	PORTUGUESE("pt"),
 	ENGLISH("na");
 
 	/**

@@ -5,6 +5,7 @@ import java.util.Collections;
 
 import converters.AbstractConverter;
 import converters.MeasureType;
+import views.ViewConverter;
 
 /**
  * Class that has the main methods and contains most of the logic
@@ -19,7 +20,7 @@ public class Controller {
 	 * Indicates the path where the program will search for the converters
 	 */
 	public static String pathConverters;
-	
+
 	/**
 	 * Name of compiled .jar file name
 	 */
@@ -27,6 +28,7 @@ public class Controller {
 
 	/**
 	 * Load and return a list of all AbstractConverter that is in a fixed path
+	 * 
 	 * @return a list of all AbstractConverter found
 	 */
 	public static ArrayList<AbstractConverter> getAllConverters() {
@@ -37,11 +39,11 @@ public class Controller {
 	}
 
 	/**
-	 * Load a list of all AbstractConverter that is in a fixed path 
-	 * Then filter the list of AbstractConverter based in the MeasureType of the elements
+	 * Load a list of all AbstractConverter that is in a fixed path Then filter the
+	 * list of AbstractConverter based in the MeasureType of the elements
 	 * 
 	 * @param measureType that will remain in the list
-	 * @return list of all AbstractConverter that has the allowed MeasureType 
+	 * @return list of all AbstractConverter that has the allowed MeasureType
 	 */
 	public static ArrayList<AbstractConverter> getListConvertByMeasureType(MeasureType measureType) {
 
@@ -67,7 +69,7 @@ public class Controller {
 	 * 
 	 * @param convertFrom the measure of the given value
 	 * @param convertTo   the measure that the value will be converted to
-	 * @return string in Scientific Notation of the value converted 
+	 * @return string in Scientific Notation of the value converted
 	 */
 	public static String convertMeasure(AbstractConverter convertFrom, AbstractConverter convertTo,
 			String stringConvertFrom) {
@@ -87,6 +89,19 @@ public class Controller {
 			System.out.println("Number has a invalid value, skiping.");
 		}
 		return "";
+	}
+
+	/**
+	 * Create a instance of the view ViewConverter, set the values and then show the
+	 * view
+	 */
+	public static void createViewConverter() throws Exception {
+		ViewConverter viewConverter = new ViewConverter();
+
+		ArrayList<AbstractConverter> listConvertFrom = Controller.getAllConverters();
+		viewConverter.setComboConvertFrom(listConvertFrom);
+		viewConverter.setComboConvertTo();
+		viewConverter.setVisible(true);
 	}
 
 }
