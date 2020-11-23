@@ -26,11 +26,9 @@ public class Controller {
 	 * @return a list of all AbstractConverter found
 	 */
 	public static ArrayList<AbstractConverter> getAllConverters() {
-		String path = pathConverters;
-		ArrayList<AbstractConverter> listAllConverters = ClassFinder.loadClasses(path);
-		Collections.sort(listAllConverters,
+		Collections.sort(getAllConverters(),
 				(x, y) -> x.getMeasureType().getTypeString().compareTo(y.getMeasureType().getTypeString()));
-		return listAllConverters;
+		return getAllConverters();
 	}
 
 	/**
@@ -40,8 +38,7 @@ public class Controller {
 	 * @return list of all AbstractConverter found
 	 */
 	public static ArrayList<AbstractConverter> getAllConvertersByPath(String path) {
-		path = "C:\\Users\\Vitor\\Desktop\\converters";
-		return ClassFinder.loadClasses(path);
+		return ClassFinder.loadClasses();
 	}
 
 	/**

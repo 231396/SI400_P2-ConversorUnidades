@@ -20,21 +20,23 @@ public final class ClassFinder {
 		"AbstractConverter", "MeasureType",		
 	};	
 
+	private static String convertersFolder = "converters";
+	
 	/**
 	 * The method load classes that inherit from AbstractConverter in a given path
 	 * @param path absolute path where the classes are
 	 * @return list of AbstractConverter acquired in the given path
 	 */
-	public static ArrayList<AbstractConverter> loadClasses(String path) {
+	public static ArrayList<AbstractConverter> loadClasses() {
 		ArrayList<AbstractConverter> result = new ArrayList<>();
 		try {
-			File folder = new File(path);			
-			String pack = Util.getFileName(folder);
+			File folder = new File(System.getProperty("user.dir") + convertersFolder);			
 
-			File[] listOfFiles = folder.listFiles();
+			File[] listOfFiles = folder.listFiles();			
 			
 			for (File f : listOfFiles) {
-				AbstractConverter ac = loadClass(f, pack);
+				//System.out.println(f);
+				AbstractConverter ac = loadClass(f);
 				if (ac != null)
 					result.add(ac);		
 			}
@@ -50,7 +52,7 @@ public final class ClassFinder {
 	 * @param path absolute path where the class is
 	 * @return A instance of AbstractConverter of the load class
 	 */
-	public static AbstractConverter loadClass(File f, String packName) {
+	public static AbstractConverter loadClass(File f) {
 		AbstractConverter result = null;
 		try {
 			String fName = Util.getFileName(f).replace(".java", "");
@@ -58,17 +60,11 @@ public final class ClassFinder {
 			if (Arrays.stream(prohibitedTexts).anyMatch(fName::equals))
 				return null;
 			
-			URL[] urls = new URL[]{ f.toURI().toURL() };
+			String clsName = convertersFolder + '.' + fName;
+			Class<?> cls = Class.forName(clsName);
 			
-			URLClassLoader urlClassLoader = new URLClassLoader(urls);
+			result = (AbstractConverter)cls.getDeclaredConstructor().newInstance();
 			
-			for (URL url : urls)
-				System.out.println(url.toString());
-			
-			String clsName = packName + '.' + fName;
-			result = (AbstractConverter)urlClassLoader.loadClass(clsName).getDeclaredConstructor().newInstance();
-			
-			urlClassLoader.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
