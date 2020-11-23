@@ -23,6 +23,9 @@ import javax.swing.SwingConstants;
 import java.awt.Toolkit;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 public class ViewConverter extends JFrame {
 
@@ -160,5 +163,18 @@ public class ViewConverter extends JFrame {
 		lblTo.setBackground(Color.WHITE);
 		lblTo.setBounds(23, 113, 96, 28);
 		contentPane.add(lblTo);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(0, 0, 658, 22);
+		contentPane.add(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("help");
+		menuBar.add(mnNewMenu);
+		
+		JMenu mnNewMenu_1 = new JMenu("file");
+		menuBar.add(mnNewMenu_1);
+		
+		JMenuItem mntmCloseFile = new JMenuItem("Close File");
+		mnNewMenu_1.add(mntmCloseFile);
 	}
 }
