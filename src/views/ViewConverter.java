@@ -1,31 +1,32 @@
 package views;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.SystemColor;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.EtchedBorder;
 
 import base.Controller;
 import comboBoxModel.ConverterComboBoxModel;
 import converters.AbstractConverter;
-
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.Color;
-import javax.swing.border.EtchedBorder;
-import java.awt.SystemColor;
-import javax.swing.SwingConstants;
-import java.awt.Toolkit;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
 
 public class ViewConverter extends JFrame {
 
@@ -168,13 +169,33 @@ public class ViewConverter extends JFrame {
 		menuBar.setBounds(0, 0, 658, 22);
 		contentPane.add(menuBar);
 		
-		JMenu mnNewMenu = new JMenu("help");
-		menuBar.add(mnNewMenu);
-		
-		JMenu mnNewMenu_1 = new JMenu("file");
+		JMenu mnNewMenu_1 = new JMenu("File");
 		menuBar.add(mnNewMenu_1);
 		
-		JMenuItem mntmCloseFile = new JMenuItem("Close File");
-		mnNewMenu_1.add(mntmCloseFile);
+		JMenuItem mntmNewMenuItem = new JMenuItem("close");
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		mntmNewMenuItem.addMouseListener(new MouseAdapter() {
+			
+
+		});
+		mnNewMenu_1.add(mntmNewMenuItem);
+		
+		JMenu mnNewMenu = new JMenu("Help");
+		mnNewMenu.addMouseListener(new MouseAdapter() {
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				ViewHelp vh = new ViewHelp();
+				vh.setVisible(true);
+			}
+		});
+		menuBar.add(mnNewMenu);
+		
 	}
 }
