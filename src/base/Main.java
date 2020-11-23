@@ -14,7 +14,7 @@ public class Main {
 		
 		Controller.programLanguage = Languages.ENGLISH;
 		
-		ArrayList<AbstractConverter> list = ClassFinder.loadClasses();
+		ArrayList<AbstractConverter> list = ClassFinder.getExternalWorkloads("teste.jar");
 		
 		System.out.println(list.size());
 		for (AbstractConverter a : list) {
