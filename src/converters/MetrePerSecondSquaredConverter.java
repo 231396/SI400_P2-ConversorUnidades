@@ -19,12 +19,12 @@ public class MetrePerSecondSquaredConverter extends AbstractConverter {
 	
 	@Override
 	public String toStringBr() {
-		return "Aceleracao - metro p/ segundo ao quadrado (m/s\u00b2)";
+		return "Aceleracao - Metro p/ segundo ao quadrado (m/s\u00b2)";
 	}
 	
 	@Override
 	public String toStringNa() {
-		return "Acceleration - metre p/ second squared (m/s\u00b2)";
+		return "Acceleration - Metre p/ second squared (m/s\u00b2)";
 	}
 
 

@@ -19,12 +19,12 @@ public class CentimetrePerSecondSquaredConverter extends AbstractConverter {
 	
 	@Override
 	public String toStringBr() {
-		return "Aceleracao - centimetros p/ segundo ao quadrado (cm/s\u00b2)";
+		return "Aceleracao - Centimetros p/ segundo ao quadrado (cm/s\u00b2)";
 	}
 	
 	@Override
 	public String toStringNa() {
-		return "Acceleration - centimetre p/ second squared (cm/s\u00b2)";
+		return "Acceleration - Centimetre p/ second squared (cm/s\u00b2)";
 	}
 
 

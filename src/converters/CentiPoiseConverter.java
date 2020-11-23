@@ -20,12 +20,12 @@ public class CentiPoiseConverter extends AbstractConverter{
 	
 	@Override
 	public String toStringBr() {
-		return "Viscosidade - centiPoise (cP)";
+		return "Viscosidade - CentiPoise (cP)";
 	}
 	
 	@Override
 	public String toStringNa() {
-		return "Viscosity - centiPoise (cP)";
+		return "Viscosity - CentiPoise (cP)";
 	}
 	
 }

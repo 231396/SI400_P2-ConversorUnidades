@@ -75,10 +75,11 @@ public class ViewConverter extends JFrame {
 	 * Create the frame.
 	 */
 	public ViewConverter() {
+		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ViewConverter.class.getResource("/resources/Unicamp.png")));
 		setTitle("Unit Converter");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 506, 237);
+		setBounds(100, 100, 664, 237);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.window);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -117,7 +118,7 @@ public class ViewConverter extends JFrame {
 				convertMeasure();
 			}
 		});
-		comboConvertFrom.setBounds(250, 60, 211, 22);
+		comboConvertFrom.setBounds(250, 60, 380, 22);
 		contentPane.add(comboConvertFrom);
 
 		comboConvertTo = new JComboBox<>();
@@ -126,7 +127,7 @@ public class ViewConverter extends JFrame {
 				convertMeasure();
 			}
 		});
-		comboConvertTo.setBounds(250, 116, 211, 22);
+		comboConvertTo.setBounds(250, 116, 380, 22);
 		contentPane.add(comboConvertTo);
 
 		JLabel lblNewLabel = new JLabel("Convert from");

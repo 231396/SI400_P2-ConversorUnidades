@@ -20,12 +20,12 @@ public class SquareMetreConverter extends AbstractConverter{
 	
 	@Override
 	public String toStringBr() {
-		return "Area - metro ao quadrado (m\\\\u33a1)";
+		return "Area - Metro ao quadrado (m\\\\u33a1)";
 	}
 	
 	@Override
 	public String toStringNa() {
-		return "Area - squared metre (m\\\\u33a1)";
+		return "Area - Squared metre (m\\\\u33a1)";
 	}
 	
 }

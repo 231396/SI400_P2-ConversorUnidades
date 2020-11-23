@@ -19,7 +19,7 @@ public class SquareDecimetreConverter extends AbstractConverter{
 	
 	@Override
 	public String toStringBr() {
-		return "Area - decimentro ao quadrado (dm\\\\\\\\u33a1)";
+		return "Area - Decimentro ao quadrado (dm\\\\\\\\u33a1)";
 	}
 	
 	@Override

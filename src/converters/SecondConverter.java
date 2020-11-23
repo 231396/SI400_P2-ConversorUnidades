@@ -19,7 +19,7 @@ public class SecondConverter extends AbstractConverter{
 	
 	@Override
 	public String toStringBr() {
-		return "Tempo - segundos (s)";
+		return "Tempo - Segundos (s)";
 	}
 	
 	@Override

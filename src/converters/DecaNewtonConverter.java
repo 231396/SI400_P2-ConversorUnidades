@@ -19,7 +19,7 @@ public class DecaNewtonConverter extends AbstractConverter {
 	
 	@Override
 	public String toStringBr() {
-		return "Força - Decanewton (daN)";
+		return "Forca - Decanewton (daN)";
 	}
 	
 	@Override

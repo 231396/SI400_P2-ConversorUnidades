@@ -19,7 +19,7 @@ public class DeciwattConverter extends AbstractConverter {
 	
 	@Override
 	public String toStringBr() {
-		return "Potência - Deciwatt (dW)";
+		return "Potencia - Deciwatt (dW)";
 	}
 	
 	@Override

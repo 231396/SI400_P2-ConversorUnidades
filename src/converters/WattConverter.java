@@ -20,7 +20,7 @@ public class WattConverter extends AbstractConverter {
 	
 	@Override
 	public String toStringBr() {
-		return "Potência - Watt (W)";
+		return "Potencia - Watt (W)";
 	}
 	
 	@Override

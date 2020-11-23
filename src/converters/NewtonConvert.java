@@ -20,7 +20,7 @@ public class NewtonConvert extends AbstractConverter{
 	
 	@Override
 	public String toStringBr() {
-		return "Força - Newton (N)";
+		return "Forca - Newton (N)";
 	}
 	
 	@Override

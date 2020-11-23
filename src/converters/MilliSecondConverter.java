@@ -19,12 +19,12 @@ public class MilliSecondConverter extends AbstractConverter{
 
 	@Override
 	public String toStringBr() {
-		return "Tempo - milisegundos (ms)";
+		return "Tempo - Milisegundos (ms)";
 	}
 	
 	@Override
 	public String toStringNa() {
-		return "Time - millisecond (ms)";
+		return "Time - Millisecond (ms)";
 	}
 
 

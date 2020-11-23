@@ -19,12 +19,12 @@ public class MetreSecondConverter extends AbstractConverter {
 	
 	@Override
 	public String toStringBr() {
-		return "Velocidade - metros por segundo (m/s)";
+		return "Velocidade - Metros por segundo (m/s)";
 	}
 	
 	@Override
 	public String toStringNa() {
-		return "Speed - meter per second (m/s)";
+		return "Speed - Meter per second (m/s)";
 	}
 
 

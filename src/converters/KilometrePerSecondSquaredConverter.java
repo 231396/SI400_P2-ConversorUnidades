@@ -19,7 +19,7 @@ public class KilometrePerSecondSquaredConverter extends AbstractConverter {
 	
 	@Override
 	public String toStringBr() {
-		return "Aceleração - Quilômetro p/ segundo ao quadrado (k/s\u00b2)";
+		return "Aceleracao - Quilometro p/ segundo ao quadrado (k/s\u00b2)";
 	}
 	
 	@Override

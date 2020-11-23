@@ -19,7 +19,7 @@ public class DecawattConverter extends AbstractConverter {
 	
 	@Override
 	public String toStringBr() {
-		return "Potência - Decawatt (daW)";
+		return "Potencia - Decawatt (daW)";
 	}
 	
 	@Override

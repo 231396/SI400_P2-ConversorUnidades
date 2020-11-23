@@ -19,7 +19,7 @@ public class DeciNewtonConverter extends AbstractConverter {
 	
 	@Override
 	public String toStringBr() {
-		return "Força - Newton (dN)";
+		return "Forca - Newton (dN)";
 	}
 	
 	@Override
