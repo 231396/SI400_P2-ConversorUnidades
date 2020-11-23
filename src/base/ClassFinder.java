@@ -4,7 +4,6 @@ import java.io.FileInputStream;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.jar.JarEntry;
 import java.util.jar.JarInputStream;
 
@@ -20,14 +19,6 @@ public final class ClassFinder {
 	 */
 	private final static String packageName = "converters";
 	
-	/**
-	 * Array in which each value of it represents a class that is not part of the family of converters
-	 */
-	private final static String[] prohibitedClasses = new String[] { 
-			packageName + ".AbstractConverter", 
-			packageName + ".MeasureType"	
-	};	
-
 	/**
 	 * Load all converters class dynamically.
 	 * @param jarName name of compiled jar file
@@ -74,17 +65,18 @@ public final class ClassFinder {
 		String jarString = jarEntry.getName();				
 		
 		if (jarString.startsWith(packageName) && jarString.endsWith(".class")) {
-			String clsName = jarString.replaceAll("/", "\\.");
-
-			clsName = clsName.replaceAll(".class", "");
+			String clsName = jarString
+					.replaceAll(".class", "")
+					.replaceAll("/", "\\.");
 			
-			if (Arrays.stream(prohibitedClasses).anyMatch(clsName::equals))
-				return null;
-
 			try {
 				URLClassLoader ucl = new URLClassLoader(new URL[] { url });
-				Class<?> cls = ucl.loadClass(clsName);
-				loadedClass = (AbstractConverter) cls.getDeclaredConstructor().newInstance();
+								
+				Class<?> cls = ucl.loadClass(clsName);			
+				
+				if (AbstractConverter.class.isAssignableFrom(cls) && AbstractConverter.class != cls)				
+					loadedClass = (AbstractConverter)cls.getDeclaredConstructor().newInstance();
+				
 				ucl.close();
 			} 
 			catch (Exception e) {
