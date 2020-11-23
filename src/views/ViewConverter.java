@@ -95,9 +95,33 @@ public class ViewConverter extends JFrame {
 	 * Create the frame.
 	 */
 	public ViewConverter() {
+				
+		String helpTxt;
+		String fileTxt;
+		String closeTxt;
+		String unitTxt;
+		String convertFromTxt;
+		String convertToTxt;
+		
+		if (Controller.programLanguage.equals(Languages.PORTUGUESE)) {			
+			helpTxt = "Ajuda";
+			fileTxt = "Arquivo";
+			closeTxt = "Fechar";
+			unitTxt = "Conversor de Unidade";
+			convertFromTxt = "Converter de";
+			convertToTxt = "Para";
+		} else {
+			helpTxt = "Help";
+			fileTxt = "File";
+			closeTxt = "Close";
+			unitTxt = "Unit Converter";
+			convertFromTxt = "Covert From";
+			convertToTxt = "To";
+		}
+		
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ViewConverter.class.getResource("/resources/Unicamp.png")));
-		setTitle("Unit Converter");
+		setTitle(unitTxt);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 664, 237);
 		contentPane = new JPanel();
@@ -149,8 +173,8 @@ public class ViewConverter extends JFrame {
 		});
 		comboConvertTo.setBounds(250, 116, 380, 22);
 		contentPane.add(comboConvertTo);
-
-		JLabel lblNewLabel = new JLabel("Convert from");
+		
+		JLabel lblNewLabel = new JLabel(convertFromTxt);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, SystemColor.activeCaptionText, null));
 		lblNewLabel.setBackground(new Color(255, 255, 255));
@@ -158,7 +182,7 @@ public class ViewConverter extends JFrame {
 		lblNewLabel.setBounds(23, 57, 96, 28);
 		contentPane.add(lblNewLabel);
 
-		JLabel lblTo = new JLabel("To");
+		JLabel lblTo = new JLabel(convertToTxt);
 		lblTo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTo.setFont(new Font("Arial", Font.BOLD, 12));
 		lblTo.setBorder(new EtchedBorder(EtchedBorder.LOWERED, SystemColor.activeCaptionText, null));
@@ -169,20 +193,6 @@ public class ViewConverter extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 658, 22);
 		contentPane.add(menuBar);
-		
-		String helpTxt;
-		String fileTxt;
-		String closeTxt;
-		
-		if (Controller.programLanguage.equals(Languages.PORTUGUESE)) {			
-			helpTxt = "Ajuda";
-			fileTxt = "Arquivo";
-			closeTxt = "Fechar";
-		} else {
-			helpTxt = "Help";
-			fileTxt = "File";
-			closeTxt = "Close";
-		}
 		
 		JMenu mnNewMenu_1 = new JMenu(fileTxt);
 		menuBar.add(mnNewMenu_1);
