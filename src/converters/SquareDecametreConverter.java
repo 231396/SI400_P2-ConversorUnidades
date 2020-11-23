@@ -19,12 +19,12 @@ public class SquareDecametreConverter extends AbstractConverter {
 	
 	@Override
 	public String toStringBr() {
-		return "Area - Decamentro ao quadrado (dam\\\\\\\\u33a1)";
+		return "Area - Decamentro ao quadrado (dam\u00b2)";
 	}
 	
 	@Override
 	public String toStringNa() {
-		return "Area - Square Decametre (dam\\\\u33a1)";
+		return "Area - Square Decametre (dam\u00b2)";
 	}
 
 
