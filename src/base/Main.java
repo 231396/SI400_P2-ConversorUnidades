@@ -17,7 +17,7 @@ public class Main {
 				.getLocation()
 				.getPath())
 				.getName();
-		
+		Controller.jarFileName = "D:\\Arquivos de Armazenamento\\Downloads\\baba.jar";
 		//Get chosen language or use default
 		
 		Locale language = Locale.getDefault();

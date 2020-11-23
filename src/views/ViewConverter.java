@@ -25,6 +25,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 
 import base.Controller;
+import base.Languages;
 import comboBoxModel.ConverterComboBoxModel;
 import converters.AbstractConverter;
 
@@ -169,10 +170,24 @@ public class ViewConverter extends JFrame {
 		menuBar.setBounds(0, 0, 658, 22);
 		contentPane.add(menuBar);
 		
-		JMenu mnNewMenu_1 = new JMenu("File");
+		String helpTxt;
+		String fileTxt;
+		String closeTxt;
+		
+		if (Controller.programLanguage.equals(Languages.PORTUGUESE)) {			
+			helpTxt = "Ajuda";
+			fileTxt = "Arquivo";
+			closeTxt = "Fechar";
+		} else {
+			helpTxt = "Help";
+			fileTxt = "File";
+			closeTxt = "Close";
+		}
+		
+		JMenu mnNewMenu_1 = new JMenu(fileTxt);
 		menuBar.add(mnNewMenu_1);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("close");
+		JMenuItem mntmNewMenuItem = new JMenuItem(closeTxt);
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
@@ -185,7 +200,7 @@ public class ViewConverter extends JFrame {
 		});
 		mnNewMenu_1.add(mntmNewMenuItem);
 		
-		JMenu mnNewMenu = new JMenu("Help");
+		JMenu mnNewMenu = new JMenu(helpTxt);
 		mnNewMenu.addMouseListener(new MouseAdapter() {
 			
 			@Override
