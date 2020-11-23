@@ -4,7 +4,6 @@ import java.io.FileInputStream;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.jar.JarEntry;
 import java.util.jar.JarInputStream;
 
@@ -14,19 +13,18 @@ import converters.AbstractConverter;
  * Class that find and instantiate AbstractConverter
  */
 public final class ClassFinder {
+		
+	/**
+	 * Name of the package where the converters are placed
+	 */
+	private final static String packageName = "converters";
 	
 	/**
-	 * Array in which each value of it represents a class that is not part of the family of converters
+	 * Load all converters class dynamically.
+	 * @param jarName name of compiled jar file
+	 * @return list of AbstractConverter dynamically instanced
 	 */
-	private final static String[] prohibitedTexts = new String[] { "AbstractConverter", "MeasureType" };
-	
-	private final static String convertersFolder = "converters";
-
-	public static ArrayList<AbstractConverter> getExternalWorkloads(String jarName) {
-
-		String packageName = convertersFolder;
-
-		packageName = packageName.replaceAll("\\.", "/");
+	public static ArrayList<AbstractConverter> loadClasses(String jarName) {
 
 		ArrayList<AbstractConverter> myClasses = new ArrayList<AbstractConverter>();
 
@@ -42,34 +40,10 @@ public final class ClassFinder {
 				if (jarEntry == null)
 					break;
 				
-				String jarString = jarEntry.getName();
-
-				
-				
-				
-				if (jarString.startsWith(packageName) && jarString.endsWith(".class")) {
-					String clsName = jarString.replaceAll("/", "\\.");
-
-					clsName = clsName.replaceAll(".class", "");
-					
-					if (Arrays.stream(prohibitedTexts).anyMatch(clsName.replace(convertersFolder+".", "")::equals))
-						continue;
-					URL url = new URL("jar:file:" + jarName + "!/");
-
-					URLClassLoader ucl = new URLClassLoader(new URL[] { url });
-
-					try {
-						Class<?> myLoadedClass = ucl.loadClass(clsName);
-						AbstractConverter myClass = (AbstractConverter) myLoadedClass.getDeclaredConstructor().newInstance();
-						myClasses.add(myClass);
-					} 
-					catch (Exception e) {
-						e.printStackTrace();
-					}
-					ucl.close();
-				}
+				AbstractConverter newClass = loadClass(jarEntry, new URL("jar:file:" + jarName + "!/"));
+				if(newClass != null)
+					myClasses.add(newClass);								
 			}
-
 			jarFile.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -77,4 +51,38 @@ public final class ClassFinder {
 
 		return myClasses;
 	}
+	
+	/**
+	 * Load a single class dynamically
+	 * @param jarEntry object represent the current jar file entry
+	 * @param url the url object to jar file
+	 * @return a AbstractConverter child or null if is not a child
+	 */
+	private static AbstractConverter loadClass(JarEntry jarEntry, URL url) 
+	{
+		AbstractConverter loadedClass = null;
+	
+		String jarString = jarEntry.getName();				
+		
+		if (jarString.startsWith(packageName) && jarString.endsWith(".class")) {
+			String clsName = jarString
+					.replaceAll(".class", "")
+					.replaceAll("/", "\\.");
+			
+			try {
+				URLClassLoader ucl = new URLClassLoader(new URL[] { url });
+								
+				Class<?> cls = ucl.loadClass(clsName);			
+				
+				if (AbstractConverter.class.isAssignableFrom(cls) && AbstractConverter.class != cls)				
+					loadedClass = (AbstractConverter)cls.getDeclaredConstructor().newInstance();
+				
+				ucl.close();
+			} 
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return loadedClass;
+	}	
 }

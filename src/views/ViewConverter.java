@@ -27,7 +27,7 @@ import java.awt.event.KeyEvent;
 public class ViewConverter extends JFrame {
 
 	/**
-	 * 
+	 * JFrame necessary serial version
 	 */
 	private static final long serialVersionUID = 1L;
 	
@@ -37,12 +37,19 @@ public class ViewConverter extends JFrame {
 	private JComboBox<AbstractConverter> comboConvertFrom;
 	private JComboBox<AbstractConverter> comboConvertTo;
 
+	/**
+	 * Set comboBox comboConvertFrom from the given list
+	 * @param listConvertFrom list of AbstractConverter objects
+	 */
 	public void setComboConvertFrom(ArrayList<AbstractConverter> listConvertFrom) {
 
 		ConverterComboBoxModel convertFromComboBoxModel = new ConverterComboBoxModel(listConvertFrom);
 		comboConvertFrom.setModel(convertFromComboBoxModel);
 	}
 
+	/**
+	 * Set comboConvertTo from the comboConvertFrom
+	 */
 	public void setComboConvertTo() {
 		AbstractConverter converterSelected = (AbstractConverter) comboConvertFrom.getModel().getSelectedItem();
 		ArrayList<AbstractConverter> listConvertTo = Controller
@@ -52,6 +59,9 @@ public class ViewConverter extends JFrame {
 		comboConvertTo.setModel(convertToComboBoxModel);
 	}
 
+	/**
+	 * Set txtConvertTo to the correct measure.
+	 */
 	private void convertMeasure() {
 
 		AbstractConverter selectedConvertFrom = (AbstractConverter) comboConvertFrom.getModel().getSelectedItem();
@@ -64,6 +74,11 @@ public class ViewConverter extends JFrame {
 		txtConvertTo.setText(stringMeasureConverted);
 	}
 
+	/**
+	 * Verify if char is a number
+	 * @param c given char
+	 * @return is valid number or not
+	 */
 	private boolean isValidNumber(char c) {
 		if (!((c >= '0') && (c <= '9') || (c == KeyEvent.VK_COMMA) || (c == KeyEvent.VK_PERIOD) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
 			return false;
