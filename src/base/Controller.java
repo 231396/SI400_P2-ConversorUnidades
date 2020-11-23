@@ -19,6 +19,8 @@ public class Controller {
 	 * Indicates the path where the program will search for the converters
 	 */
 	public static String pathConverters;
+	
+	public static String jarFileName;
 
 	/**
 	 * Load and return a list of all AbstractConverter that is in a fixed path
@@ -26,19 +28,10 @@ public class Controller {
 	 * @return a list of all AbstractConverter found
 	 */
 	public static ArrayList<AbstractConverter> getAllConverters() {
-		Collections.sort(getAllConverters(),
+		ArrayList<AbstractConverter> listAllConverters = ClassFinder.getExternalWorkloads(jarFileName);
+		Collections.sort(listAllConverters,
 				(x, y) -> x.getMeasureType().getTypeString().compareTo(y.getMeasureType().getTypeString()));
-		return getAllConverters();
-	}
-
-	/**
-	 * Load and return a list of all AbstractConverter that is in a given path
-	 * 
-	 * @param path the path to search all AbstractConverter
-	 * @return list of all AbstractConverter found
-	 */
-	public static ArrayList<AbstractConverter> getAllConvertersByPath(String path) {
-		return ClassFinder.loadClasses();
+		return listAllConverters;
 	}
 
 	/**
