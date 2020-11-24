@@ -14,7 +14,7 @@ public class ConverterComboBoxModel extends BaseComboBoxModel<AbstractConverter>
 	/**
 	 * Method Constructor of the class
 	 * 
-	 * @param list that contains the values of the model
+	 * @param listAbstractConverter list that contains the values of the model
 	 */
 	public ConverterComboBoxModel(ArrayList<AbstractConverter> listAbstractConverter) {
 		super(listAbstractConverter);

@@ -69,6 +69,7 @@ public class Controller {
 	 * 
 	 * @param convertFrom the measure of the given value
 	 * @param convertTo   the measure that the value will be converted to
+	 * @param stringConvertFrom the value that will be converted
 	 * @return string in Scientific Notation of the value converted
 	 */
 	public static String convertMeasure(AbstractConverter convertFrom, AbstractConverter convertTo,
@@ -94,6 +95,7 @@ public class Controller {
 	/**
 	 * Create a instance of the view ViewConverter, set the values and then show the
 	 * view
+	 * @throws Exception if occur an error during the load of the Converters Classes
 	 */
 	public static void createViewConverter() throws Exception {
 		ViewConverter viewConverter = new ViewConverter();
