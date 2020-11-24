@@ -13,7 +13,7 @@ import base.Languages;
 public class ViewHelp extends JFrame {
 
 	/**
-	 * 
+	 * JFrame necessary serial version
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
